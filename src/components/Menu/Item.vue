@@ -1,18 +1,20 @@
 <template>
   <li class="item">
     <a class="link" href="#">
-      <i
-        class="icon"
-        :style="{ 'mask-image': `url(${require(`../../assets/icons/evericons/${icon}.svg`)})`}"
-      />
+      <Icon :icon="icon" />
       <span class="description">{{ description }}</span>
     </a>
   </li>
 </template>
 
 <script>
+import Icon from "../Icon";
+
 export default {
   name: "Item",
+  components: {
+    Icon
+  },
   props: {
     description: String,
     link: String,
@@ -51,18 +53,6 @@ export default {
 .description {
   display: none;
   margin-left: 1rem;
-}
-
-.icon {
-  width: 2rem;
-  height: 2rem;
-  margin: 0 1.5rem;
-  background: var(--primary);
-  mask-size: cover;
-  mask-repeat: no-repeat;
-  /* mask-image: url(--icon); */
-  transform: rotate(0);
-  transition: var(--trasition-speed);
 }
 
 @media only screen and (max-width: 600px) {
