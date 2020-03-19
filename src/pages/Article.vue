@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "Main"
+  name: "Article"
 };
 </script>
 

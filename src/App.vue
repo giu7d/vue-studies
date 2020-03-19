@@ -1,19 +1,19 @@
 <template>
   <div>
     <Menu />
-    <Main />
+    <Articles />
   </div>
 </template>
 
 <script>
 import Menu from "./components/Menu/Menu";
-import Main from "./pages/Main";
+import Articles from "./pages/Articles";
 
 export default {
   name: "App",
   components: {
     Menu,
-    Main
+    Articles
   }
 };
 </script>
