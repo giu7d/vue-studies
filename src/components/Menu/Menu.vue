@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Item from "./Item";
+import Item from "components/Menu/Item";
 
 export default {
   name: "Menu",

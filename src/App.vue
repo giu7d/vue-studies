@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Menu from "./components/Menu/Menu";
-import Articles from "./pages/Articles";
+import Menu from "components/Menu/Menu";
+import Articles from "pages/Articles";
 
 export default {
   name: "App",

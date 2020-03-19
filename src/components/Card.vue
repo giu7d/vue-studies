@@ -2,11 +2,11 @@
   <div class="card">
     <div class="card-content">
       <small class="channels">
-        <span v-for="channel in channels" :key="channel">{{channel}}</span>
+        <span v-for="channel in channels" :key="channel">{{ channel }}</span>
       </small>
-      <h2 class="title">{{title}}</h2>
-      <small class="author">{{author}}</small>
-      <p class="abstract">{{abstract}}</p>
+      <h2 class="title">{{ title }}</h2>
+      <small class="author">{{ author }}</small>
+      <p class="abstract">{{ abstract }}</p>
     </div>
     <div class="card-actions">
       <a href="#" class="btn">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Icon from "../components/Icon";
+import Icon from "components/Icon";
 export default {
   name: "Card",
   props: {
