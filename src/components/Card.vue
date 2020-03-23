@@ -2,14 +2,16 @@
   <div class="card">
     <div class="card-content">
       <small class="channels">
-        <span v-for="channel in channels" :key="channel">{{ channel }}</span>
+        <span v-for="channel in channels" :key="channel">#{{ channel }}</span>
       </small>
       <h2 class="title">{{ title }}</h2>
-      <small class="author">{{ author }}</small>
+      <div class="authors">
+        <span v-for="author in authors" :key="author">{{ author }}</span>
+      </div>
       <p class="abstract">{{ abstract }}</p>
     </div>
     <div class="card-actions">
-      <a href="#" class="btn">
+      <a href="#" :class="['btn',  isLiked && 'active']">
         <Icon icon="basic/flame" />
       </a>
       <a href="#" class="btn">
@@ -26,8 +28,9 @@ export default {
   props: {
     title: String,
     channels: Array,
-    author: String,
-    abstract: String
+    authors: Array,
+    abstract: String,
+    isLiked: Boolean
   },
   components: { Icon }
 };
@@ -58,12 +61,18 @@ export default {
   color: var(--bg-primary);
 }
 
-.author {
-  display: block;
+.authors {
+  display: flex;
+  margin-bottom: 2rem;
+  flex-direction: row;
+  width: 100%;
   text-transform: uppercase;
   font-size: 1rem;
-  margin-bottom: 2rem;
   color: var(--secondary);
+}
+
+.authors span {
+  margin-right: 1rem;
 }
 
 .channels {
@@ -95,6 +104,18 @@ export default {
 }
 
 .btn:hover {
+  color: var(--text-primary);
+  filter: grayscale(0%) opacity(1);
+  transition: var(--trasition-speed);
+}
+
+.btn.active:hover {
+  color: var(--text-primary);
+  filter: grayscale(100%) opacity(0.25);
+  transition: var(--trasition-speed);
+}
+
+.active {
   color: var(--text-primary);
   filter: grayscale(0%) opacity(1);
   transition: var(--trasition-speed);

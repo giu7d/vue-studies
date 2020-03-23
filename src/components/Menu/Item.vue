@@ -1,6 +1,6 @@
 <template>
   <li class="item">
-    <a class="link" href="#">
+    <a class="link" :href="link">
       <Icon :icon="icon" />
       <span class="description">{{ description }}</span>
     </a>

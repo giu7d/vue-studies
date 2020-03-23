@@ -1,19 +1,34 @@
 <template>
   <div class="container">
     <Card
-      title="Vue studies"
-      :channels="['#tech', '#ui']"
-      author="Giuseppe Setem"
-      abstract="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ex possimus perferendis aut. Quod, tempora, at accusamus ipsa eos soluta repellendus quae, debitis hic recusandae facere dignissimos fuga enim nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptatibus consectetur quaerat, sit laborum nesciunt laudantium aperiam. Aliquid ut blanditiis ullam in, nihil fugit velit aspernatur adipisci quia repudiandae totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vel ipsa, quae ad facere suscipit eos at reiciendis, eveniet fugiat fugit velit sapiente animi, rerum a? Autem inventore voluptatem delectus."
+      v-for="article in feed"
+      :key="article.id"
+      :title="article.title"
+      :channels="article.channels.map(({title}) => title)"
+      :authors="article.authors"
+      :abstract="article.abstract"
+      :isLiked="article.isLiked"
     />
   </div>
 </template>
 
 <script>
 import Card from "components/Card";
+import { listFeed } from "services/mock.service";
+
 export default {
   name: "Articles",
-  components: { Card }
+  components: { Card },
+  data() {
+    return {
+      feed: []
+    };
+  },
+  mounted() {
+    listFeed()
+      .then(data => (this.feed = data))
+      .catch(err => console.error(err));
+  }
 };
 </script>
 

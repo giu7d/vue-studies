@@ -1,14 +1,7 @@
-function Channel(
-  id = null,
-  title = "",
-  desc = "",
-  articles = [],
-  isSubscribed = false
-) {
+function Channel(id = null, title = "", desc = "", isSubscribed = false) {
   this.id = id;
   this.title = title;
   this.desc = desc;
-  this.articles = articles;
   this.isSubscribed = isSubscribed;
 }
 

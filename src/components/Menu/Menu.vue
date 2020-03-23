@@ -1,11 +1,11 @@
 <template>
   <nav>
     <ul>
-      <Item description="Feed" icon="various/rocket" />
-      <Item description="#Tech" icon="software/terminal" />
-      <Item description="#Crypto" icon="finance/ethereum" />
-      <Item description="#Science" icon="various/planet" />
-      <Item description="New Article" icon="basic/plus" />
+      <Item description="Feed" icon="various/rocket" link="#" />
+      <Item description="#Tech" icon="software/terminal" link="#" />
+      <Item description="#Crypto" icon="finance/ethereum" link="#" />
+      <Item description="#Science" icon="various/planet" link="#" />
+      <Item description="New Article" icon="basic/plus" link="#" />
     </ul>
   </nav>
 </template>
