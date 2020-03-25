@@ -36,7 +36,7 @@ yarn serve
 - [x] State
 - [x] Lifecycles
 - [x] Services
-- [ ] Routes
+- [x] Routes
 - [ ] Vuex
 - [ ] Testing
 
