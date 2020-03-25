@@ -1,20 +1,20 @@
 <template>
   <div>
     <Menu :channels="channels" />
-    <Feed />
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
 import Menu from "components/Menu/Menu";
-import Feed from "pages/Feed";
 import { listChannels } from "services/mock.service";
 
 export default {
   name: "App",
   components: {
-    Menu,
-    Feed
+    Menu
   },
   data() {
     return {
@@ -50,5 +50,17 @@ body {
   background-color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  margin-left: 5rem;
+  padding: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: auto;
+    padding: 2rem;
+  }
 }
 </style>

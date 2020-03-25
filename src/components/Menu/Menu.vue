@@ -1,15 +1,15 @@
 <template>
   <nav>
     <ul>
-      <Item description="Feed" icon="various/rocket" link="#" />
+      <Item description="Feed" icon="various/rocket" link="/" />
       <!-- Channels -->
       <!-- Begin -->
       <Item
         v-for="channel in channels"
         :key="channel.id"
-        :description="`#${channel.title}`"
+        :link="'/channel/'+channel.id"
         :icon="channel.icon"
-        link="#"
+        :description="`#${channel.title}`"
       />
       <!-- End -->
       <Item description="New Article" icon="basic/plus" link="#" />

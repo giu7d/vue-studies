@@ -98,18 +98,33 @@ function listAllChannels() {
   return new Promise(resolve => resolve(CHANNELS));
 }
 
-// function openChannel(id) {
-//   return new Promise((resolve, reject) => {
-//     const channel = CHANNELS.filter(channel => channel.id === id);
-//     if (!channel) {
-//       reject(channel);
-//     }
-//     resolve(channel);
-//   });
-// }
+function openChannel(id) {
+  console.log("openChannel", id);
+  return new Promise((resolve, reject) => {
+    const channel = CHANNELS.filter(channel => channel.id === id);
+    if (!channel) {
+      reject();
+    }
+    resolve(...channel);
+  });
+}
 
-// // Articles
-// //
+// Articles
+//
+function listArticleByChannel(channel) {
+  return new Promise((resolve, reject) => {
+    const articles = ARTICLES.filter(
+      ({ channels }) => !isEmpty(channels.filter(({ id }) => channel.id === id))
+    );
+
+    if (!articles) {
+      reject();
+    }
+
+    resolve(articles);
+  });
+}
+
 // function openArticle(id) {
 //   return new Promise((resolve, reject) => {
 //     const article = ARTICLES.filter(article => article.id === id);
@@ -120,4 +135,10 @@ function listAllChannels() {
 //   });
 // }
 
-export { listFeed, listChannels, listAllChannels };
+export {
+  listFeed,
+  listChannels,
+  listAllChannels,
+  openChannel,
+  listArticleByChannel
+};

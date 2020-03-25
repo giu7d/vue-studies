@@ -1,9 +1,9 @@
 <template>
   <li class="item">
-    <a class="link" :href="link">
+    <router-link class="link" :to="link">
       <Icon :icon="icon" />
       <span class="description">{{ description }}</span>
-    </a>
+    </router-link>
   </li>
 </template>
 

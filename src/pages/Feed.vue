@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div>
     <div class="header">
       <Icon icon="various/rocket" />
-      <h1>Feed</h1>
+      <h2>Feed</h2>
     </div>
     <Articles :articles="articles" />
   </div>
@@ -30,21 +30,10 @@ export default {
 </script>
 
 <style>
-.container {
-  margin-left: 5rem;
-  padding: 2rem;
-}
-
 .header {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 2rem;
-}
-@media only screen and (max-width: 600px) {
-  .container {
-    margin: auto;
-    padding: 2rem;
-  }
 }
 </style>
