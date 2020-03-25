@@ -6,7 +6,7 @@ Learning new Vue skills! 🔥️
 
 ## Getting Started
 
-This repo contains a Vue project with an UI inspired in the [fireship](https://www.youtube.com/watch?v=biOMz4puGt8) flexbox tutorial.
+This repo contains a Vue project with the UI inspired by the [fireship](https://www.youtube.com/watch?v=biOMz4puGt8) flexbox tutorial.
 
 ### Install & Run
 
