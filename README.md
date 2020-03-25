@@ -1,24 +1,44 @@
-# vue-studies
+# Vue Studies
 
-## Project setup
+Learning new Vue skills! 🔥️
+
+![](screenshots/vue-studies.png)
+
+## Getting Started
+
+This repo contains a Vue project with an UI inspired in the [fireship](https://www.youtube.com/watch?v=biOMz4puGt8) flexbox tutorial.
+
+### Install & Run
+
+Clone this repo!
+
+```
+git clone <repo>
+cd <repo>
+```
+
+To **Install** this project, run inside the _repo_:
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+To **Run** this project, execute:
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Features
 
-### Lints and fixes files
-```
-yarn lint
-```
+- [x] Components
+- [x] Flexbox (CSS3)
+- [x] State
+- [x] Lifecycles
+- [x] Services
+- [ ] Vuex
+- [ ] Testing
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Build With
+
+- @vue/cli 4.2.3
