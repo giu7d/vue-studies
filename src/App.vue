@@ -1,19 +1,30 @@
 <template>
   <div>
-    <Menu />
-    <Articles />
+    <Menu :channels="channels" />
+    <Feed />
   </div>
 </template>
 
 <script>
 import Menu from "components/Menu/Menu";
-import Articles from "pages/Articles";
+import Feed from "pages/Feed";
+import { listChannels } from "services/mock.service";
 
 export default {
   name: "App",
   components: {
     Menu,
-    Articles
+    Feed
+  },
+  data() {
+    return {
+      channels: []
+    };
+  },
+  mounted() {
+    listChannels()
+      .then(data => (this.channels = data))
+      .catch(err => console.error(err));
   }
 };
 </script>

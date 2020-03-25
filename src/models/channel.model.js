@@ -1,8 +1,15 @@
-function Channel(id = null, title = "", desc = "", isSubscribed = false) {
+function Channel(
+  id = null,
+  title = "",
+  desc = "",
+  icon = "",
+  isSubscribed = false
+) {
   this.id = id;
   this.title = title;
   this.desc = desc;
   this.isSubscribed = isSubscribed;
+  this.icon = icon;
 }
 
 // Methods

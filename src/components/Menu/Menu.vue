@@ -2,9 +2,16 @@
   <nav>
     <ul>
       <Item description="Feed" icon="various/rocket" link="#" />
-      <Item description="#Tech" icon="software/terminal" link="#" />
-      <Item description="#Crypto" icon="finance/ethereum" link="#" />
-      <Item description="#Science" icon="various/planet" link="#" />
+      <!-- Channels -->
+      <!-- Begin -->
+      <Item
+        v-for="channel in channels"
+        :key="channel.id"
+        :description="`#${channel.title}`"
+        :icon="channel.icon"
+        link="#"
+      />
+      <!-- End -->
       <Item description="New Article" icon="basic/plus" link="#" />
     </ul>
   </nav>
@@ -17,6 +24,9 @@ export default {
   name: "Menu",
   components: {
     Item
+  },
+  props: {
+    channels: Array
   }
 };
 </script>

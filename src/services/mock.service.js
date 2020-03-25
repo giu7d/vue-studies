@@ -1,17 +1,42 @@
 import Channel from "models/channel.model";
 import Article from "models/article.model";
 import { isEmpty } from "~/utils";
+import { v4 as uuid } from "uuid";
 
 const CHANNELS = [
-  new Channel(0, "tech", "Your favorite tech tips!", true),
-  new Channel(1, "cripto", "Your favorite cripto tips!", false),
-  new Channel(2, "science", "Your favorite science tips!", false),
-  new Channel(3, "cooking", "Your favorite cooking tips!", false)
+  new Channel(
+    uuid(),
+    "tech",
+    "Your favorite tech tips!",
+    "software/terminal",
+    true
+  ),
+  new Channel(
+    uuid(),
+    "cripto",
+    "Your favorite cripto tips!",
+    "finance/ethereum",
+    true
+  ),
+  new Channel(
+    uuid(),
+    "science",
+    "Your favorite science tips!",
+    "various/planet",
+    true
+  ),
+  new Channel(
+    uuid(),
+    "cooking",
+    "Your favorite cooking tips!",
+    "food/chicken",
+    false
+  )
 ];
 
 const ARTICLES = [
   new Article(
-    0,
+    uuid(),
     "Vue studies",
     [CHANNELS[0]],
     ["Giuseppe Setem"],
@@ -19,17 +44,26 @@ const ARTICLES = [
     true
   ),
   new Article(
-    0,
-    "Create a todo app ur asshole",
+    uuid(),
+    "Create a todo app like an asshole",
     [CHANNELS[0], CHANNELS[2]],
     ["Giuseppe Setem", "Rafa Oliveira"],
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ex possimus perferendis aut. Quod, tempora, at accusamus ipsa eos soluta repellendus quae, debitis hic recusandae facere dignissimos fuga enim nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptatibus consectetur quaerat, sit laborum nesciunt laudantium aperiam. Aliquid ut blanditiis ullam in, nihil fugit velit aspernatur adipisci quia repudiandae totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vel ipsa, quae ad facere suscipit eos at reiciendis, eveniet fugiat fugit velit sapiente animi, rerum a? Autem inventore voluptatem delectus.",
     false
   ),
   new Article(
-    1,
+    uuid(),
     "The Bitcoin Crash",
     [CHANNELS[1]],
+    ["Giuseppe Setem"],
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ex possimus perferendis aut. Quod, tempora, at accusamus ipsa eos soluta repellendus quae, debitis hic recusandae facere dignissimos fuga enim nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptatibus consectetur quaerat, sit laborum nesciunt laudantium aperiam. Aliquid ut blanditiis ullam in, nihil fugit velit aspernatur adipisci quia repudiandae totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vel ipsa, quae ad facere suscipit eos at reiciendis, eveniet fugiat fugit velit sapiente animi, rerum a? Autem inventore voluptatem delectus.",
+    false
+  ),
+
+  new Article(
+    uuid(),
+    "A delicious strogonoff recipe",
+    [CHANNELS[3]],
     ["Giuseppe Setem"],
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ex possimus perferendis aut. Quod, tempora, at accusamus ipsa eos soluta repellendus quae, debitis hic recusandae facere dignissimos fuga enim nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptatibus consectetur quaerat, sit laborum nesciunt laudantium aperiam. Aliquid ut blanditiis ullam in, nihil fugit velit aspernatur adipisci quia repudiandae totam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vel ipsa, quae ad facere suscipit eos at reiciendis, eveniet fugiat fugit velit sapiente animi, rerum a? Autem inventore voluptatem delectus.",
     false
@@ -51,14 +85,18 @@ function listFeed() {
 
 // Channels
 //
-// function listChannels() {
-//   return new Promise(resolve => {
-//     const subscribedChannels = CHANNELS.filter(
-//       channel => channel.isSubscribed === true
-//     );
-//     resolve(subscribedChannels);
-//   });
-// }
+function listChannels() {
+  return new Promise(resolve => {
+    const subscribedChannels = CHANNELS.filter(
+      ({ isSubscribed }) => isSubscribed === true
+    );
+    resolve(subscribedChannels);
+  });
+}
+
+function listAllChannels() {
+  return new Promise(resolve => resolve(CHANNELS));
+}
 
 // function openChannel(id) {
 //   return new Promise((resolve, reject) => {
@@ -82,4 +120,4 @@ function listFeed() {
 //   });
 // }
 
-export { listFeed };
+export { listFeed, listChannels, listAllChannels };

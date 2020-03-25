@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div>
     <Card
-      v-for="article in feed"
+      v-for="article in articles"
       :key="article.id"
       :title="article.title"
       :channels="article.channels.map(({title}) => title)"
@@ -14,27 +14,36 @@
 
 <script>
 import Card from "components/Card";
-import { listFeed } from "services/mock.service";
 
 export default {
   name: "Articles",
   components: { Card },
-  data() {
-    return {
-      feed: []
-    };
-  },
-  mounted() {
-    listFeed()
-      .then(data => (this.feed = data))
-      .catch(err => console.error(err));
+  props: {
+    articles: Array
   }
 };
 </script>
 
 <style>
-.container {
-  margin-left: 5rem;
-  padding: 2rem;
+.warning {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.warning h2 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.warning p {
+  font-size: 1.2rem;
+}
+
+.warning li {
+  margin: 1rem 0;
 }
 </style>
